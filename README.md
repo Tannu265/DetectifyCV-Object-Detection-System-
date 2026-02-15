@@ -1,62 +1,119 @@
-# Real-Time-Object-Detection-With-OpenCV
+# 🎯 DetectifyCV
+Real-Time Object Detection using OpenCV & Deep Learning
+---
 
-### Introduction
+# 📖 Overview
 
-This project aims to do real-time object detection through a laptop camera or webcam using OpenCV and MobileNetSSD. The idea is to loop over each frame of the video stream, detect objects like person, chair, dog, etc. and bound each detection in a box.
-Here, we will go through the steps required for setting up the project and some explanation about the code.
+DetectifyCV is a real-time object detection system built with Python and OpenCV's Deep Neural Network (DNN) module.
+It leverages the pre-trained MobileNet SSD (Single Shot MultiBox Detector) model to detect and classify objects directly from a live webcam feed.
+It performs real-time object detection using a lightweight deep learning model optimized for speed and efficiency. The system captures live video frames, processes them through a pre-trained neural network, and displays detected objects with bounding boxes and confidence scores.
+---
 
+# 🚀 Features
 
-### How to run this code?
+* 🎥 Real-time webcam detection
 
-**Step 1:** Create a directory in your local machine and cd into it
+* 🧠 Deep learning-based object recognition
 
-```
-mkdir ~/Desktop/opencv_project
-cd ~/Desktop/opencv_project
-```
+* 📦 Bounding box visualization
 
-**Step 2:** Clone the repository and cd into the folder:
+* 🏷️ Class labels with confidence scores
 
-```
-git clone https://github.com/Surya-Murali/Real-Time-Object-Detection-With-OpenCV.git
-cd Real-Time-Object-Detection-With-OpenCV
-```
-**Step 3:** Install all the necessary libraries. I used MacOS for this project. These are some of the libraries I had to install:
+* ⚡ Lightweight and fast execution
 
-```
-brew install opencv
-pip install opencv-python
-pip install opencv-contrib-python
-pip install opencv-python-headless
-pip install opencv-contrib-python-headless
-pip install matplotlib
-pip install imutils
-```
+* 💻 Command-line interface support
+---
 
-Make sure to download and install opencv and and opencv-contrib releases for OpenCV 3.3. This ensures that the deep neural network (dnn) module is installed. You must have OpenCV 3.3 (or newer) to run this code.
+# 🛠️ Tech Stack
 
-**Step 4:** Make sure you have your video devices connected (e.g. Webcam, FaceTime HD Camera, etc.). You can list them by typing this in your terminal
+*Language: Python 3.x
+*Computer Vision: OpenCV
+*Deep Learning Model: MobileNet SSD (Caffe framework)
+*Libraries: NumPy, imutils
+---
 
-```
-system_profiler SPCameraDataType
-system_profiler SPCameraDataType | grep "^    [^ ]" | sed "s/    //" | sed "s/://"
-```
+# 📂 Project Structure
+DetectifyCV/
+│
+├── real_time_object_detection.py
+├── MobileNetSSD_deploy.prototxt.txt
+├── MobileNetSSD_deploy.caffemodel
+├── requirements.txt
+└── README.md
+---
 
-**Step 5:** To start your video stream and real-time object detection, run the following command:
+## ⚙️ Installation
+# 1️⃣ Clone the Repository
+git clone https://github.com/Tannu265/DetectifyCV-Object-Detection-System-.git
+cd DetectifyCV
 
-```
+# 2️⃣ Create Virtual Environment (Recommended)
+
+Windows:
+
+python -m venv venv
+venv\Scripts\activate
+
+# 3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+Or manually:
+
+pip install opencv-python numpy imutils
+
+# ▶️ Usage
+
+Run the following command from the project directory:
+
 python real_time_object_detection.py --prototxt MobileNetSSD_deploy.prototxt.txt --model MobileNetSSD_deploy.caffemodel
-```
 
-**Step 6:** If you need any help regarding the arguments you pass, try:
 
-```
-python real_time_object_detection.py --help
-```
+The webcam will launch automatically and begin detecting objects in real time.
 
-### References and Useful Links
+Press q to exit.
+---
 
-* https://github.com/chuanqi305/MobileNet-SSD
-* https://github.com/opencv/opencv
-* https://www.pyimagesearch.com/2017/11/06/deep-learning-opencvs-blobfromimage-works/
-* https://github.com/jrosebr1/imutils
+# 🧠 How It Works
+
+Loads the pre-trained MobileNet SSD model using OpenCV’s DNN module.
+
+Captures live frames from the webcam.
+
+Converts frames into a blob format for neural network processing.
+
+Runs forward pass through the network.
+
+Extracts detection results above a confidence threshold.
+
+Draws bounding boxes and labels on detected objects.
+
+📊 Model Information
+
+Model: MobileNet SSD
+
+Framework: Caffe
+
+Pre-trained on: PASCAL VOC dataset
+
+Detectable Classes (20):
+
+Person
+
+Car
+
+Bus
+
+Bicycle
+
+Dog
+
+Cat
+
+Bottle
+
+Chair
+
+And more...
+
+MobileNet SSD is optimized for real-time applications and performs efficiently even on systems without a GPU.
+
